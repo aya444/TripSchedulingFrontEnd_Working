@@ -1,62 +1,32 @@
-<div>
-    <div class="submit-form">
-      <div *ngIf="!submitted">
-        <div class="form-group">
-          <label for="from_station">From Station</label>
-          <input
-            type="text"
-            class="form-control"
-            id="from_station"
-            required
-            [(ngModel)]="trip.from_station"
-            name="from_station"
-          />
-        </div>
-  
-        <div class="form-group">
-          <label for="to_station">To Station</label>
-          <input
-            class="form-control"
-            id="to_station"
-            required
-            [(ngModel)]="trip.to_station"
-            name="to_station"
-          />
-        </div>
-
-        <div class="form-group">
-            <label for="departure_time">Departure Time</label>
-            <input
-              class="form-control"
-              id="departure_time"
-              required
-              [(ngModel)]="trip.departure_time"
-              name="departure_time"
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="arrival_time">Arrival Time</label>
-            <input
-              class="form-control"
-              id="arrival_time"
-              required
-              [(ngModel)]="trip.arrival_time"
-              name="arrival_time"
-            />
-          </div>
-  
-        <tr>
-          <button (click)="saveTrip()" class="btn btn-success" onclick="alert('Trip was submitted successfully!')" >Submit</button>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <button (click)="newTrip()" class="btn btn1" >Reset</button>
-        </tr>
-        
-      </div>
-  
-      <div *ngIf="submitted">
-        <h4>Trip was submitted successfully!</h4>
-        <button class="btn btn-success" (click)="newTrip()">Add</button>
-      </div>
+<h3>Create Trip</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">From Station</label>
+      <input type="text" class="form-control" id="from_station" required [(ngModel)]="trip.from_station" name="from_station">
     </div>
-  </div>
+
+    <div class="form-group">
+      <label for="name">To Station</label>
+      <input type="text" class="form-control" id="to_station" required [(ngModel)]="trip.to_station" name="to_station">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Departure Time</label>
+      <input type="text" class="form-control" id="departure_time" required [(ngModel)]="trip.departure_time" name="departure_time">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Arrival Time</label>
+      <input type="text" class="form-control" id="arrival_time" required [(ngModel)]="trip.arrival_time" name="arrival_time">
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+  <button (click)="newTrip()" class="btn btn-success" style="margin-left: 10px">Add New Trip</button>
+  <button (click)="gotoList()" class="btn btn-info" style="margin-left: 10px">Back to Trip List</button>
+</div>

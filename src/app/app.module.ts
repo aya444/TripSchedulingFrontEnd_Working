@@ -6,15 +6,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddTripComponent } from './components/add-trip/add-trip.component';
-import { TripDetailsComponent } from './components/trip-details/trip-details.component';
 import { TripsListComponent } from './components/trips-list/trips-list.component';
+import { UpdateTripComponent } from './components/update-trip/update-trip.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddTripComponent,
-    TripDetailsComponent,
-    TripsListComponent
+    TripsListComponent,
+    UpdateTripComponent
   ],
   imports: [
     BrowserModule,

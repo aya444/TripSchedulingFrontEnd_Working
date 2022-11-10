@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Trip } from 'src/app/models/trip.model';
 import { TripService } from 'src/app/services/trip.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-trips-list',
@@ -9,36 +11,34 @@ import { TripService } from 'src/app/services/trip.service';
 })
 export class TripsListComponent implements OnInit {
 
-  trips?: Trip[];
-  currentTrip: Trip = {};
-  currentIndex = -1;
+  trips?:Observable< Trip[]>;
 
-  constructor(private tripService: TripService) { }
+  constructor(private tripService: TripService,  private router: Router) { }
 
   ngOnInit(): void {
-    this.retrieveTrips();
+    this.reloadData();
   }
 
-  retrieveTrips(): void {
-    this.tripService.getAll()
-      .subscribe({
-        next: (data) => {
-          this.trips = data;
-          console.log(data);
-        },
-        error: (e) => console.error(e)
-      });
+  reloadData() {
+    this.trips = this.tripService.getAll();
   }
 
-  refreshList(): void {
-    this.retrieveTrips();
-    this.currentTrip = {};
-    this.currentIndex = -1;
+  deleteTrip(id: number): void {
+    this.tripService.delete(id)
+    .subscribe(
+      data => {
+        console.log(data);
+        this.reloadData();
+      },
+      error => console.log(error));
   }
 
-  setActiveTrip(trip: Trip, index: number): void {
-    this.currentTrip = trip;
-    this.currentIndex = index;
+  // tripDetails(id: number){
+  //   this.router.navigate(['details', id]);
+  // }
+
+  updateTrip(id: number){
+    this.router.navigate(['update', id]);
   }
 
   removeAllTrips(): void {
@@ -46,10 +46,12 @@ export class TripsListComponent implements OnInit {
       .subscribe({
         next: (res) => {
           console.log(res);
-          this.refreshList();
+          this.reloadData();
+          window.location.reload();
         },
         error: (e) => console.error(e)
       });
   }
+
 
 }
