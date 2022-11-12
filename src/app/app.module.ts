@@ -10,6 +10,8 @@ import { TripsListComponent } from './components/trips-list/trips-list.component
 import { UpdateTripComponent } from './components/update-trip/update-trip.component';
 import { StationsListComponent } from './components/stations-list/stations-list.component';
 import { SplashPageComponent } from './components/splash-page/splash-page.component';
+import { RegisterComponent } from './components/register/register.component';
+import { SigninComponent } from './components/signin/signin.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { SplashPageComponent } from './components/splash-page/splash-page.compon
     TripsListComponent,
     UpdateTripComponent,
     StationsListComponent,
-    SplashPageComponent
+    SplashPageComponent,
+    RegisterComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
