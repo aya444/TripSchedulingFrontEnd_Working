@@ -34,10 +34,6 @@ export class TripsListComponent implements OnInit {
       error => console.log(error));
   }
 
-  // tripDetails(id: number){
-  //   this.router.navigate(['details', id]);
-  // }
-
   updateTrip(id: number){
     this.router.navigate(['update', id]);
   }
@@ -55,6 +51,10 @@ export class TripsListComponent implements OnInit {
   }
   gotoList() {
     this.router.navigate(['/add']);
+  }
+
+  gotoSplash1() {
+    this.router.navigate(['/splash']);
   }
 
 }

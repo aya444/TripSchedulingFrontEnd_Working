@@ -14,12 +14,16 @@ export class StationService {
     return this.http.get<Station[]>(`${this.apiServerUrl}/station/all`);
   }
 
+  public getStation(StationId: any): Observable<Station> {
+    return this.http.get<Station>(`${this.apiServerUrl}/station/find/${StationId}`);
+  }
+
   public addStation(Station: Station): Observable<Station> {
     return this.http.post<Station>(`${this.apiServerUrl}/station/add`, Station);
   }
 
-  public updateStation(Station: Station): Observable<Station> {
-    return this.http.put<Station>(`${this.apiServerUrl}/station/update`, Station);
+  public updateStation(StationId: any, Station: Station): Observable<Station> {
+    return this.http.put<Station>(`${this.apiServerUrl}/station/update/${StationId}`, Station);
   }
 
   public deleteStation(StationId: number): Observable<void> {

@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
 
 
 @Component({
-  selector: 'app-sign-in',
-  templateUrl: './signin.component.css',
+  selector: 'app-signin',
+  templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css']
 })
 export class SignInComponent implements OnInit {
@@ -28,7 +28,7 @@ export class SignInComponent implements OnInit {
     .subscribe(data => {
       console.log(data)
       this.Admin = new Admin();
-     // this.gotoSignIn();
+      this.gotoSplashPage();
     }, 
     error => console.log(error));
   }
@@ -40,9 +40,9 @@ export class SignInComponent implements OnInit {
 
   }
 
-  // gotoSignIn() {
-  //   this.router.navigate(['/signIn']);
-  // }
+  gotoSplashPage() {
+    this.router.navigate(['/splash']);
+  }
 
 
 

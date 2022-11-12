@@ -1,7 +1,5 @@
-export interface Station {
-
-    id: number;
-    name: String;
-    imageUrl: String;
-    
+export class Station {
+    id?: any;
+    name?: String;
+    imageUrl?: String;
 }

@@ -43,6 +43,6 @@ export class RegisterComponent implements OnInit {
   }
 
   gotoSignIn() {
-    this.router.navigate(['/signIn']);
+    this.router.navigate(['/signin']);
   }
 }
