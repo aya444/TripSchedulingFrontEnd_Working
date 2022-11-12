@@ -8,13 +8,17 @@ import { AppComponent } from './app.component';
 import { AddTripComponent } from './components/add-trip/add-trip.component';
 import { TripsListComponent } from './components/trips-list/trips-list.component';
 import { UpdateTripComponent } from './components/update-trip/update-trip.component';
+import { StationsListComponent } from './components/stations-list/stations-list.component';
+import { SplashPageComponent } from './components/splash-page/splash-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddTripComponent,
     TripsListComponent,
-    UpdateTripComponent
+    UpdateTripComponent,
+    StationsListComponent,
+    SplashPageComponent
   ],
   imports: [
     BrowserModule,

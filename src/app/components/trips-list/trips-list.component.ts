@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   selector: 'app-trips-list',
   templateUrl: './trips-list.component.html',
   styleUrls: ['./trips-list.component.css']
+
 })
 export class TripsListComponent implements OnInit {
 
@@ -52,6 +53,8 @@ export class TripsListComponent implements OnInit {
         error: (e) => console.error(e)
       });
   }
-
+  gotoList() {
+    this.router.navigate(['/add']);
+  }
 
 }
