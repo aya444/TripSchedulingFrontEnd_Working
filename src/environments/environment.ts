@@ -1,8 +1,5 @@
 export const environment = {
-    production: false,
-    //@ts-ignore
-    apiUrl: window["env"]["apiUrl"] || "default",
-    //@ts-ignore
-    debug: window["env"]["debug"] || false
+  production: false,
+  apiUrl:'http://backendapp2-trip-scheduling.apps.eu410.prod.nextcle.com'
+  // apiUrl:'http://172.30.87.102:8080'
 };
-

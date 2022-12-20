@@ -10,3 +10,6 @@
    
    
 docker run -d --name  frontend_containerfile --env API_URL="http://localhost:8080/api" frontend_app
+
+
+oc apply -f deployment.yaml
